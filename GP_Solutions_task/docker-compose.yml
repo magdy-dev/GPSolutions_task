@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  property-view:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: property-view:local
+    container_name: property-view
+    ports:
+      - "8092:8092"
+    restart: unless-stopped
+

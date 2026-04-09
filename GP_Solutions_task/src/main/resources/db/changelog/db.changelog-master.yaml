@@ -1,0 +1,215 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-create-hotel-schema
+      author: ai
+      changes:
+        - createTable:
+            tableName: hotel
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: CLOB
+                  constraints:
+                    nullable: false
+              - column:
+                  name: brand
+                  type: VARCHAR(255)
+              - column:
+                  name: address_house_number
+                  type: VARCHAR(50)
+              - column:
+                  name: address_street
+                  type: VARCHAR(255)
+              - column:
+                  name: address_city
+                  type: VARCHAR(100)
+              - column:
+                  name: address_country
+                  type: VARCHAR(100)
+              - column:
+                  name: address_post_code
+                  type: VARCHAR(20)
+              - column:
+                  name: contacts_phone
+                  type: VARCHAR(50)
+              - column:
+                  name: contacts_email
+                  type: VARCHAR(255)
+              - column:
+                  name: arrival_check_in
+                  type: VARCHAR(10)
+              - column:
+                  name: arrival_check_out
+                  type: VARCHAR(10)
+
+        - createTable:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: amenity
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+        - addForeignKeyConstraint:
+            baseTableName: hotel_amenities
+            baseColumnNames: hotel_id
+            referencedTableName: hotel
+            referencedColumnNames: id
+            constraintName: fk_hotel_amenities_hotel
+
+  - changeSet:
+      id: 2-seed-sample-hotel
+      author: ai
+      changes:
+        - insert:
+            tableName: hotel
+            columns:
+              - column:
+                  name: id
+                  valueNumeric: 1
+              - column:
+                  name: name
+                  value: DoubleTree by Hilton Minsk
+              - column:
+                  name: description
+                  value: The DoubleTree by Hilton Hotel Minsk offers 193 luxurious rooms in the Belarusian capital and stunning views of Minsk city from the hotel's 20th floor...
+              - column:
+                  name: brand
+                  value: Hilton
+              - column:
+                  name: address_house_number
+                  value: "9"
+              - column:
+                  name: address_street
+                  value: Pobediteley Avenue
+              - column:
+                  name: address_city
+                  value: Minsk
+              - column:
+                  name: address_country
+                  value: Belarus
+              - column:
+                  name: address_post_code
+                  value: "220004"
+              - column:
+                  name: contacts_phone
+                  value: +375 17 309-80-00
+              - column:
+                  name: contacts_email
+                  value: doubletreeminsk.info@hilton.com
+              - column:
+                  name: arrival_check_in
+                  value: "14:00"
+              - column:
+                  name: arrival_check_out
+                  value: "12:00"
+
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Free parking
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Free WiFi
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Non-smoking rooms
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Concierge
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: On-site restaurant
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Fitness center
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Pet-friendly rooms
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Room service
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Business center
+        - insert:
+            tableName: hotel_amenities
+            columns:
+              - column:
+                  name: hotel_id
+                  valueNumeric: 1
+              - column:
+                  name: amenity
+                  value: Meeting rooms
+

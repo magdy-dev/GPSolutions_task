@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.GPSolutions.HotelView.service.HotelServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.557 s -- in com.GPSolutions.HotelView.service.HotelServiceTest
